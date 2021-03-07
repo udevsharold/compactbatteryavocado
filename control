@@ -1,0 +1,11 @@
+Package: com.udevs.compactbatteryavocado
+Name: CompactBatteryAvocado
+Version: 2.0.0
+Architecture: iphoneos-arm
+Description: Show battery percentage on 2x2 battery widget
+Maintainer: udevs
+Author: udevs
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000), firmware(>=14.0)
+Icon: https://udevsharold.github.io/repo/depictions/com.udevs.compactbatteryavocado/icon/icon.png
+Depiction: https://udevsharold.github.io/repo/depictions/?p=com.udevs.compactbatteryavocado
