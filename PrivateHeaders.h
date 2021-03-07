@@ -13,6 +13,7 @@
 @property (assign,nonatomic) double ringLineWidth;
 @property (assign,nonatomic) long long percentCharge;
 @property (nonatomic,retain) UIImage * glyph;
+@property (assign,getter=isEmpty,nonatomic) BOOL empty;
 -(void)setRingItemViewStyle:(long long)arg1 ;
 -(long long)ringItemViewStyle;
 @end

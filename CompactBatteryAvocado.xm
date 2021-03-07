@@ -106,8 +106,9 @@ static void updateRingView(BCUIRingItemView *ringView, NSUInteger numberOfDevice
             }
         }
         
-        
-        ringView.cbaChargeLabel.text = [NSString stringWithFormat:@"%lld", ringView.percentCharge];
+        if (!ringView.empty){
+            ringView.cbaChargeLabel.text = [NSString stringWithFormat:@"%lld", ringView.percentCharge];
+        }
         ringView.cbaGlyphView.image = ringView.glyph;
         glyphView.hidden = YES;
         
@@ -177,7 +178,7 @@ static void updateRingView(BCUIRingItemView *ringView, NSUInteger numberOfDevice
 
 -(void)setPercentCharge:(long long)charge{
     %orig;
-    if (enabled && [self.superview.viewDelegate isKindOfClass:[%c(BCUI2x2AvocadoViewController) class]]){
+    if (enabled && [self.superview.viewDelegate isKindOfClass:[%c(BCUI2x2AvocadoViewController) class]] && !self.empty){
         self.cbaChargeLabel.text = [NSString stringWithFormat:@"%lld", charge];
     }
 }
