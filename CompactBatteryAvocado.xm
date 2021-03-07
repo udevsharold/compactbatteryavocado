@@ -68,7 +68,8 @@ static void updateRingView(BCUIRingItemView *ringView, NSUInteger numberOfDevice
         
         BCUIChargeRing *chargeRing = [ringView valueForKey:@"_chargeRing"];
         UIImageView *glyphView = [chargeRing valueForKey:@"_glyphImageView"];
-        
+        ringView.cbaGlyphView.tintColor = glyphView.tintColor;
+
         if (!ringView.cbaGlyphView || numberOfDevicesChanged){
             
             if (numberOfDevicesChanged && ringView.cbaGlyphView){
@@ -80,7 +81,6 @@ static void updateRingView(BCUIRingItemView *ringView, NSUInteger numberOfDevice
             ringView.cbaGlyphView.contentMode = UIViewContentModeScaleAspectFit;
             
             ringView.cbaGlyphView.translatesAutoresizingMaskIntoConstraints = NO;
-            ringView.cbaGlyphView.tintColor = [UIColor whiteColor];
             
             NSLayoutConstraint *leadingConstraint = [NSLayoutConstraint constraintWithItem:ringView.cbaGlyphView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:ringView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0];
             [ringView addConstraint:leadingConstraint];
