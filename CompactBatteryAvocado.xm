@@ -103,7 +103,7 @@ static void updateRingView(BCUIRingItemView *ringView, NSUInteger numberOfDevice
                 if (ringView.glyph.symbolImage) symbolFactor = 2.f;
 
                 if (verticalStyle == CBAStyleTop){
-                    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:ringView.cbaGlyphView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:ringView.cbaChargeLabel attribute:NSLayoutAttributeTop multiplier:1.f constant:symbolFactor*factor*(ringView.ringLineWidth - gap)];
+                    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:ringView.cbaGlyphView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:ringView.cbaChargeLabel attribute:NSLayoutAttributeTop multiplier:1.f constant:symbolFactor*factor*(ringView.ringLineWidth + (numberOfDevices > 1 ? -1*gap : gap))];
                     [ringView addConstraint:topConstraint];
                     
                     NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:ringView.cbaGlyphView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:ringView attribute:NSLayoutAttributeBottom multiplier:1.f constant:-1.f*symbolFactor*factor*(ringView.ringLineWidth - gap)];
@@ -112,7 +112,7 @@ static void updateRingView(BCUIRingItemView *ringView, NSUInteger numberOfDevice
                     NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:ringView.cbaGlyphView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:ringView attribute:NSLayoutAttributeTop multiplier:1.f constant:symbolFactor*factor*(ringView.ringLineWidth - gap)];
                     [ringView addConstraint:topConstraint];
                     
-                    NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:ringView.cbaGlyphView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:ringView.cbaChargeLabel attribute:NSLayoutAttributeBottom multiplier:1.f constant:-1.f*symbolFactor*factor*(ringView.ringLineWidth - gap)];
+                    NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:ringView.cbaGlyphView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:ringView.cbaChargeLabel attribute:NSLayoutAttributeBottom multiplier:1.f constant:-1.f*symbolFactor*factor*(ringView.ringLineWidth + (numberOfDevices > 1 ? -1*gap : gap))];
                     [ringView addConstraint:bottomConstraint];
                 }
             }
