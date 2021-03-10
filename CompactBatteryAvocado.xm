@@ -172,14 +172,11 @@ static void updateRingView(BCUIRingItemView *ringView, NSUInteger numberOfDevice
     }
 }
 
--(NSMutableArray <BCUIRingItemView *>*)_batteryDeviceViews{
-    NSMutableArray <BCUIRingItemView *> *ret = %orig;
-    if (enabled){
-        for (BCUIRingItemView *ringView in ret){
-            updateRingView(ringView, ret.count, YES);
-        }
+-(void)_configureBatteryDeviceView:(id)deviceView withBatteryDevice:(id)arg2 transitionCoordinator:(id)arg3{
+    %orig;
+    if (enabled && [deviceView isKindOfClass:[%c(BCUIRingItemView) class]]){
+        updateRingView(deviceView, self.batteryDevices.count, NO);
     }
-    return ret;
 }
 
 %end
