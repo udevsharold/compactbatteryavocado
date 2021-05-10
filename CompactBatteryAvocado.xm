@@ -122,7 +122,7 @@ static void updateRingView(BCUIRingItemView *ringView, NSUInteger numberOfDevice
             ringView.cbaChargeLabel.text = [NSString stringWithFormat:@"%lld", ringView.percentCharge];
         }
         ringView.cbaGlyphView.image = ringView.glyph;
-        glyphView.hidden = YES;
+        if (horizontalStyle == CBAStyleCenter) glyphView.hidden = YES;
         
         NSMutableAttributedString *labelAttr = [ringView.cbaChargeLabel.attributedText mutableCopy];
         
